@@ -2,8 +2,6 @@ package digileo.demo
 
 import java.lang.NumberFormatException
 
-import DigitsCounter._
-
 @main def run(args: String*): Unit =
   if (args.isEmpty || args.size > 1) {
     printUsage()
@@ -22,8 +20,7 @@ import DigitsCounter._
 private def printUsage(): Unit =
   println("""
             ||Integer Digits Counter|
-            |Example Usage: ./mill app.run -1234.12
-            |           Or: ./mill app.run 4355
+            |Example Usage: scala-cli . -- -1234.12
     """.stripMargin)
 
 protected def javaNumberFromString(string: String): Option[java.lang.Number] =
@@ -32,3 +29,6 @@ protected def javaNumberFromString(string: String): Option[java.lang.Number] =
   } catch {
     case _: NumberFormatException => None
   }
+
+protected def countDigits(number: Number): Int =
+  number.toString.split("[-.]").filter(_.size > 0).head.size

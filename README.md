@@ -8,7 +8,7 @@ Negative numbers and all number lengths are supported.
 Run the application for specific number using mill:
 
 ```sh
-./mill app.run -1234.56
+scala-cli . -- -1234.56
 ```
 
 This will print 4.
@@ -16,7 +16,7 @@ This will print 4.
 ## Tests
 Run the tests using:
 ```sh
-./mill app.test
+scala-cli test .
 ```
 
 ## Implementation
